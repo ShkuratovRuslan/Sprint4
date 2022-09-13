@@ -6,24 +6,24 @@ import org.junit.Test;
 public class OrderTest extends BaseUITest {
 
     @Test
-    public void orderShouldBeDone1(){
+    public void orderShouldBeDone1() {
         MainPage mainPage = new MainPage(driver);
         mainPage.open();
         mainPage.clickCookieButton();
-        mainPage.clickOrderButton(mainPage.orderButton1);
+        mainPage.clickOrderButton1();
         OrderPage orderPage = new OrderPage(driver);
         orderPage.enterNameField("Александр");
         orderPage.enterSecondNameField("Пушкин");
         orderPage.enterPlaceField("Санкт-Петербург");
         orderPage.clickMetroStationField();
-        orderPage.clickMetroListField(orderPage.metroListField1);
+        orderPage.clickMetroListField1();
         orderPage.enterPhoneNumberField("79991234567");
         orderPage.clickForwardButton();
         orderPage.clickDeliveryDateField();
-        orderPage.clickDeliveryDateCalendar(orderPage.deliveryDateCalendar1);
+        orderPage.clickDeliveryDateCalendar1();
         orderPage.clickRentTimeField();
-        orderPage.clickRentTimeList(orderPage.rentalPeriodList1);
-        orderPage.clickColorCheckbox(orderPage.checkbox1);
+        orderPage.clickRentTimeList1();
+        orderPage.clickColorCheckbox1();
         orderPage.enterCommentForCourierField("комментарий");
         orderPage.clickOrderButtonOnRentScreen();
         orderPage.clickOrderYesButton();
@@ -32,26 +32,25 @@ public class OrderTest extends BaseUITest {
     }
 
     @Test
-    public void orderShouldBeDone2(){
+    public void orderShouldBeDone2() {
         MainPage mainPage = new MainPage(driver);
         mainPage.open();
         mainPage.clickCookieButton();
-        mainPage.clickOrderButton(mainPage.orderButton2);
+        mainPage.clickOrderButton2();
         OrderPage orderPage = new OrderPage(driver);
         orderPage.enterNameField("Иван");
         orderPage.enterSecondNameField("Бунин");
         orderPage.enterPlaceField("Воронеж");
         orderPage.clickMetroStationField();
-        orderPage.scrollToField(orderPage.metroListField2);
-        orderPage.clickMetroListField(orderPage.metroListField2);
+        orderPage.clickMetroListField2();
         orderPage.enterPhoneNumberField("79997654321");
         orderPage.clickForwardButton();
         orderPage.clickDeliveryDateField();
-        orderPage.clickDeliveryDateCalendar(orderPage.deliveryDateCalendar2);
+        orderPage.clickDeliveryDateCalendar2();
         orderPage.clickRentTimeField();
-        orderPage.clickRentTimeList(orderPage.rentalPeriodList2);
-        orderPage.clickColorCheckbox(orderPage.checkbox2);
-        orderPage.enterCommentForCourierField("очень длинный комментарий!");
+        orderPage.clickRentTimeList2();
+        orderPage.clickColorCheckbox2();
+        orderPage.enterCommentForCourierField("кочень длинный комментарий!");
         orderPage.clickOrderButtonOnRentScreen();
         orderPage.clickOrderYesButton();
         boolean isDisplayed = orderPage.checkOrderCompleteWindowIsDisplayed();
