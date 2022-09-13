@@ -1,6 +1,5 @@
 package ru.yandex.practikum;
 
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -17,16 +16,14 @@ public abstract class BaseUITest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
     }
 
     @After
-    public void clearData(){
+    public void clearData() {
         driver.manage().deleteAllCookies();
         ((WebStorage) driver).getSessionStorage().clear();
         ((WebStorage) driver).getLocalStorage().clear();
     }
-
 
     @AfterClass
     public static void tearDown() {

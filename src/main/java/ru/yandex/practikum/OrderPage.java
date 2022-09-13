@@ -1,9 +1,7 @@
 package ru.yandex.practikum;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,16 +30,16 @@ public class OrderPage extends BasePage {
     //поле когда привезти самокат
     private final By deliveryDateField = By.xpath("//input[@placeholder='* Когда привезти самокат']");
     //поле календаря
-    protected final By deliveryDateCalendar1 = By.xpath("//div[@class='react-datepicker__month']/div[4]/div[1]");
-    protected final By deliveryDateCalendar2 = By.xpath("//div[@class='react-datepicker__month']/div[4]/div[last()]");
+    private final By deliveryDateCalendar1 = By.xpath("//div[@class='react-datepicker__month']/div[4]/div[1]");
+    private final By deliveryDateCalendar2 = By.xpath("//div[@class='react-datepicker__month']/div[4]/div[last()]");
     //поле срок аренды
     private final By rentTimeField = By.xpath("//div[@class='Dropdown-root']");
     //поле в выпадающем списке срока аренды
-    protected final By rentalPeriodList1 = By.xpath("//div[@class='Dropdown-menu']/div[1]");
-    protected final By rentalPeriodList2 = By.xpath("//div[@class='Dropdown-menu']/div[last()]");
+    private final By rentalPeriodList1 = By.xpath("//div[@class='Dropdown-menu']/div[1]");
+    private final By rentalPeriodList2 = By.xpath("//div[@class='Dropdown-menu']/div[last()]");
     //поле с чекбоксами
-    protected final By checkbox1 = By.xpath("//label[@for='black']");
-    protected final By checkbox2 = By.xpath("//label[@for='black']");
+    private final By checkbox1 = By.xpath("//label[@for='black']");
+    private final By checkbox2 = By.xpath("//label[@for='black']");
     //поле коомента для курьера
     private final By commentField = By.xpath("//input[@placeholder='Комментарий для курьера']");
     //кнопка заказать
@@ -55,8 +53,8 @@ public class OrderPage extends BasePage {
         driver.findElement(nameField).sendKeys(name);
     }
 
-    public void enterSecondNameField(String secondname) {//вводим фамилию
-        driver.findElement(secondNameField).sendKeys(secondname);
+    public void enterSecondNameField(String secondName) {//вводим фамилию
+        driver.findElement(secondNameField).sendKeys(secondName);
     }
 
     public void enterPlaceField(String place) {//вводим адрес
@@ -67,8 +65,12 @@ public class OrderPage extends BasePage {
         driver.findElement(metroStationField).click();
     }
 
-    public void clickMetroListField(By metro) {// выбираем станцию
-        driver.findElement(metro).click();
+    public void clickMetroListField1() {// выбираем станцию
+        driver.findElement(metroListField1).click();
+    }
+
+    public void clickMetroListField2() {// выбираем станцию
+        driver.findElement(metroListField2).click();
     }
 
     public void enterPhoneNumberField(String phone) {//вводим телефон
@@ -83,20 +85,32 @@ public class OrderPage extends BasePage {
         driver.findElement(deliveryDateField).click();
     }
 
-    public void clickDeliveryDateCalendar(By date) {//кликаем в календарь
-        driver.findElement(date).click();
+    public void clickDeliveryDateCalendar1() {//кликаем в календарь
+        driver.findElement(deliveryDateCalendar1).click();
+    }
+
+    public void clickDeliveryDateCalendar2() {//кликаем в календарь
+        driver.findElement(deliveryDateCalendar2).click();
     }
 
     public void clickRentTimeField() {//кликаем в поле даты заказа
         driver.findElement(rentTimeField).click();
     }
 
-    public void clickRentTimeList(By time) {//выбираем на сколько берем
-        driver.findElement(time).click();
+    public void clickRentTimeList1() {//выбираем на сколько берем
+        driver.findElement(rentalPeriodList1).click();
     }
 
-    public void clickColorCheckbox(By checkbox) {// кликаем в чекбокс
-        driver.findElement(checkbox).click();
+    public void clickRentTimeList2() {//выбираем на сколько берем
+        driver.findElement(rentalPeriodList2).click();
+    }
+
+    public void clickColorCheckbox1() {// кликаем в чекбокс
+        driver.findElement(checkbox1).click();
+    }
+
+    public void clickColorCheckbox2() {// кликаем в чекбокс
+        driver.findElement(checkbox2).click();
     }
 
     public void enterCommentForCourierField(String comment) {//пишем коммент
@@ -117,8 +131,4 @@ public class OrderPage extends BasePage {
         return driver.findElement(orderCompleteWindow).isDisplayed();
     }
 
-    public void scrollToField(By field) {//скроллим к нужному полю
-        WebElement element =  driver.findElement(field);;
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
-    }
 }
